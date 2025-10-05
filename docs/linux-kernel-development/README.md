@@ -53,11 +53,11 @@
       - Removing obsolete functions/macros.
       - Converting old APIs to newer ones.
       - Cleaning up warning messages or outdated code.
-    - Website: Kernel Janitors
+    - Website: [Kernel Janitors](https://kernelnewbies.org/KernelJanitors) 
 
 3. Small Bug Fixes
 
-    - Look at kernel mailing lists or bug trackers (e.g., Kernel Bugzilla
+    - Look at kernel mailing lists or bug trackers (e.g., [Kernel Bugzilla](https://bugzilla.kernel.org/)) 
     - Many bugs are marked as trivial (typo corrections, small logical fixes).
     - You can also grep for TODO or FIXME comments in the source tree for hints.
 
@@ -76,15 +76,15 @@
 
 6. Testing & Reporting
 
-    - Run the kernel with tools like syzkaller
+    - Run the kernel with tools like [syzkaller](https://github.com/google/syzkaller), (fuzzer) or kselftest.
     - Even just reproducing bugs and reporting them clearly on mailing lists is an important contribution.
 
 📚 Resources to Get Started
 
-    - Kernel Newbies: https://kernelnewbies.org
-    - Linux Kernel Mailing List (LKML): Subscribe and observe how patches are submitted and reviewed.
-    - “Linux Kernel Development” by Robert Love: A classic intro book.
-    - LWN.net: Great for learning ongoing development discussions.
+   - Kernel Newbies: https://kernelnewbies.org (community for beginners). 
+   - Linux Kernel Mailing List (LKML): Subscribe and observe how patches are submitted and reviewed.
+   - “Linux Kernel Development” by Robert Love: A classic intro book.
+   - LWN.net: Great for learning ongoing development discussions.
 
 👉 A typical beginner path is:
 Start with style/documentation cleanups → move on to simple bug fixes/driver updates → then specialize in a subsystem.
