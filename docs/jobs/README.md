@@ -31,10 +31,12 @@ Tool that will handle running jobs if machine is shutdown for a period of time.
 
 Run once-off jobs
 
-    # Status, is it running?
+    # Status, is it installed and running?
     systemctl status atd
 
     at noon # opens at cli
+
+    at 17.45 23 May 2018
 
     <CTRL-D> # to end the job
 
@@ -42,7 +44,6 @@ Run once-off jobs
     atq
 
     at wednesday # enters cli
-
 
     atrm 4 # remove this one
     atrm 3
