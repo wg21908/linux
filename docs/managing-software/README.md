@@ -94,9 +94,50 @@
 
     # Recommendation is to not update/install kerel in normal update of Linux packages
 
+## Using Source RPMs
 
+    cd /etc/yum.repos.d
 
-    
+    yum repolist
 
+    yum repolist all # see disabled ones
+
+    grep ^enabled CentOS-Sources.repo
+
+    sed -i 's/^enabled=0/enabled=1/' CentOS-Sources.repo
+
+    yum repolist        # Now shows bigger number of repos that are enabled
+
+    yum install -y yum-utils    # Program to use yum downloader
+
+    yumdownloader --source zsh
+
+    yum install ncurses-devel
+
+    rpm -i zsh-<.....>
+
+## Managing Services
+
+    yum install httpd
+
+    nmap localhost        # dont' see webserver, not yet listening on port 80
+
+    systemctl status httpd.service
+
+    systemctl enable httpd.service
+
+    systemctl status httpd.service
+
+    systemctl start httpd.service
+
+    systemctl status httpd.service
+
+    namp localhost        # now listening on port 80
+
+    # Will enable and start the service, all in one shot, better than above
+    systemctl enable httpd --now
+
+    # Disable and stop it in one shot
+    systemctl disable httpd --now
 
     
