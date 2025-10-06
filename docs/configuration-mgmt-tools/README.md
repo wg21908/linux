@@ -40,10 +40,18 @@
                group => "wheel",
                mode => "644",
                content => "[localc7]
-name=CentOS 7 Local
-baseurl=http://192.168.56.220/centos7
-gpgcheck=0
-enabled=1
-"}
-       }
+                name=CentOS 7 Local
+                baseurl=http://192.168.56.220/centos7
+                gpgcheck=0
+                enabled=1
+                "}
+                       }
+
+    cd /etc/yum.repos.d/
+    rm -f local.repos
+    cd /etc/puppet/manifests
+    puppet apply site.pp
+    cd /etc/yum.repo.s/
+    cat local.repo
+    
     
