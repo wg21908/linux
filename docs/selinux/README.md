@@ -63,15 +63,15 @@ FYI: Apparmor is the same thing as above
 
 ## Working w/SELinux booleans
 
-    getsebool -a | wc -l
+    getsebool -a | wc -l               # See all booleans
 
-    semanage boolean -l    # viewing booleans
+    semanage boolean -l                # viewing booleans
 
     getsebool httpd_read_user_content        # seeing value of something
 
     setsebool !$ on        # not persistent, only for current session
 
-    ls -l /etc/selinux/targeted/policy        # policy last updated
+    ls -l /etc/selinux/targeted/policy        # policy last updated, won't change for non-persistent
 
     # make permanent
     setsebool -P httpd_read_user_content on        # -P means permanent
@@ -84,6 +84,6 @@ FYI: Apparmor is the same thing as above
 
     semanage port -l | grep ssh        # allowed to use port 22, shows ssh_port_t in output
 
-    semanage port -a -t ssh_port_t -p tcp 2222
+    semanage port -a -at ssh_port_t -p tcp 2222
 
     !ls # run last command that begain with ls, which was ls -l /etc/selinux/targeted/policy/
