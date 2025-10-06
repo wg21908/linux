@@ -61,7 +61,36 @@
     tail /var/log/messages
     tail /var/log/andrew
     
+## Rotate Log files with logrotate
 
+    cd /etc/cron.daily/
+
+    pwd
+    ls
+
+    # logrotate is in this location
+
+    cd /etc/
+    less logrotate.conf
+
+    # no restart of service needed
+
+    ls /var/log/andrew*
+
+    logrotate /etc/logrotate.conf
+
+    ls  /var/log/andrew*
+
+    
+
+    
+
+
+
+
+    
+
+    
 
 
     
