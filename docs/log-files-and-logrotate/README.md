@@ -54,8 +54,8 @@
     # Add line
     local1.info /var/log/andrew
 
-    systemctl restart rsyslog
-    systemctl status rsyslog
+    systemctl restart rsyslogd
+    systemctl status rsyslogd
 
     logger -p local1.warn "Test message"    
     tail /var/log/messages
