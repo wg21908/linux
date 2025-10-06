@@ -50,4 +50,41 @@
 
 ## Configure Software Repo(s)
 
+    cd /etc/yum.repos.d/
+
+    dnf info epel-release.noarch
+
+    rpm -ql epel-release
+
+    less rocky.repo
+
+    dnf repolist        # To list my repos
+
+    dnf repolist all      # All repos, even disabled
+
+    vi local.repo
+        [CentOS7]
+        name=CentOS 7.2 Local Network
+        baseurl=http://192.168.56.220/centos7/
+        enabled=1
+        gpgcheck=0
+
+    yum repolist        # to see new local repo
+
+    dnf remove nmap
+
+    dnf install -y nmap        # Will install from local server created above
+
+    
+
+
+
+
+    
+    
+    
+
+
+
+
     
