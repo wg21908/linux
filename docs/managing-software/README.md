@@ -75,16 +75,17 @@
 
     dnf install -y nmap        # Will install from local server created above
 
+## DNF Cache
+
+    cd /etc/yum.repos.d
+
+    yum makecache        # Download metadata from repositoriestr
+
+    dnf clean all
+
+## Kernel Updates
+
     
-
-
-
-
-    
-    
-    
-
-
 
 
     
