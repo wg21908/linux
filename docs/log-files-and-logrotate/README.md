@@ -17,7 +17,7 @@
 
     last -n 10 <user>
 
-    sudo lastb # read b "for bad" temp file, failed login attemps
+    sudo lastb # read b "for bad" temp file, failed login attempts
 
 ## Audting su and sudo access
 
