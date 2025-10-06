@@ -30,29 +30,33 @@ FYI: Apparmor is the same thing as above
     
 ## View SELinux logs
 
-   tail /var/log/audit/audit.log
+    tail /var/log/audit/audit.log
 
-   ausearch -m avc     # shows access denieds
+    ausearch -m avc     # shows access denieds
 
-   ls -Z /etc/shadow
+    ls -Z /etc/shadow
 
-   chcon -t unlabeled_t /etc/shadow
+    chcon -t unlabeled_t /etc/shadow
 
-   ls -Z /etc/shadow
+    ls -Z /etc/shadow
 
-   ausearch -m avc -ts recent
+    ausearch -m avc -ts recent
 
-   restorecon /etc/shadow
+    restorecon /etc/shadow
    
-   ls -Z /etc/shadow
+    ls -Z /etc/shadow
 
-   semanage fcontext -l         # l for list
+    semanage fcontext -l         # l for list
 
-   semanage fcontext -l | grep /etc/shadow
+    semanage fcontext -l | grep /etc/shadow
 
-   cd /etc/selinux/targeted/contexts/files/
-   ls
+    cd /etc/selinux/targeted/contexts/files/
+    ls
 
 ## Working w/SELinux booleans
+
+    getsebool -a | wc -l
+
+    
 
 ## Working w/SELinux ports
