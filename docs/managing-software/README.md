@@ -85,6 +85,17 @@
 
 ## Kernel Updates
 
+    uname -r                # Kernel details
+
+    dnf update kernel       # Installs new kernel, doesn't update
+
+    vi /etc/dnf.conf
+        Add `exclude=kernel*`    # dnf update wouldn't update kernal
+
+    # Recommendation is to not update/install kerel in normal update of Linux packages
+
+
+
     
 
 
