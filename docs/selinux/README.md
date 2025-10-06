@@ -57,6 +57,17 @@ FYI: Apparmor is the same thing as above
 
     getsebool -a | wc -l
 
-    
+    semanage boolean -l    # viewing booleans
 
+    getsebool httpd_read_user_content        # seeing value of something
+
+    setsebool !$ on        # not persistent, only for current session
+
+    ls -l /etc/selinux/targeted/policy        # policy last updated
+
+    # make permanent
+    setsebool -P httpd_read_user_content on        # -P means permanent
+
+    !ls     # show policy last  updated, this time, will see date difference since it is a permanent/persistent change
+    
 ## Working w/SELinux ports
