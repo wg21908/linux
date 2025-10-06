@@ -151,5 +151,3 @@
 
     # Disable and stop it in one shot
     systemctl disable httpd --now
-
-    
