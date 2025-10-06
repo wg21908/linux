@@ -84,11 +84,15 @@
 ## Maintain logs with journalctl
 
     journalctl           # no switches, complete log, can page through
+    
     journalctl -n        # last 10 entries
     journalctl -n 15     # last 15 entries
+    
     journalctl -f        # follow end of journal log
+    
     journalctl -b        # since last boot
 
+    # Main configuration file
     vi /etc/systemd/journald.conf
 
     # reboot required for journald.conf updates
@@ -102,6 +106,6 @@
     journalctl --since "5 minutes ago"
 
     # see journal log files being written too 
-    journalctl --list-boots        # 0 is current log
+    journalctl --list-boots        # 0 is current log, -1 last log...
 
-    journalctl -b -1 # look at previous log  
+    journalctl -b -1               # look at previous log  
