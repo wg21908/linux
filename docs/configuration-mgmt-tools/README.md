@@ -2,24 +2,25 @@
 
 ## Install Puppet
 
-    yum install puppet
+    dnf install -y puppet
 
     # puppet comes from epel repo
 
     puppet --version
 
+    # Ruby-based product
+
 ## Extracting Data w/Facter
 
     # Check hostname and domain
 
-    hostnamectl # display hostname
+    hostnamectl             # display hostname
 
     facter
-    facter | grep hostname
-    facter | grep domain
-    facter | grep virtual
-
-        
+    facter | grep hostname        # Get hostname
+    facter | grep domain            # Get domain
+    facter | grep virtual        
+   
 ## Using amd Applying Puppet Manifests
 
     # Manifest or .pp file
@@ -32,6 +33,8 @@
 
     pwd
 
+    # site.pp is a manifest
+    #      rules for files, packages, services and users
     vi site.pp
        node "server1.example.com" {
            file { '/etc/yum.repos.d/local.repo': 
@@ -52,6 +55,5 @@
     cd /etc/puppet/manifests
     puppet apply site.pp
     cd /etc/yum.repo.s/
-    cat local.repo
-    
+    cat local.repo  
     
