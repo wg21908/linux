@@ -48,6 +48,8 @@
 
     dnf list available | more
 
+    dnf remove bash-completion        # remove it
+
 ## Configure Software Repo(s)
 
     cd /etc/yum.repos.d/
@@ -58,7 +60,7 @@
 
     less rocky.repo
 
-    dnf repolist        # To list my repos
+    dnf repolist        # To list my enabled repos
 
     dnf repolist all      # All repos, even disabled
 
@@ -77,20 +79,22 @@
 
 ## DNF Cache
 
+    /var/cache/yum
+
     cd /etc/yum.repos.d
 
-    yum makecache        # Download metadata from repositoriestr
+    yum makecache                    # Download metadata from repositor
 
     dnf clean all
 
 ## Kernel Updates
 
-    uname -r                # Kernel details
+    uname -r                         # Kernel details
 
-    dnf update kernel       # Installs new kernel, doesn't update
+    dnf update kernel                # Installs new kernel, doesn't update
 
     vi /etc/dnf.conf
-        Add `exclude=kernel*`    # dnf update wouldn't update kernal
+        Add `exclude=kernel*`        # dnf update wouldn't update kernal
 
     # Recommendation is to not update/install kerel in normal update of Linux packages
 
@@ -100,21 +104,29 @@
 
     yum repolist
 
-    yum repolist all # see disabled ones
+    yum repolist all                 # see disabled ones
 
     grep ^enabled CentOS-Sources.repo
 
     sed -i 's/^enabled=0/enabled=1/' CentOS-Sources.repo
 
-    yum repolist        # Now shows bigger number of repos that are enabled
+    yum repolist                     # Now shows bigger number of repos that are enabled
 
-    yum install -y yum-utils    # Program to use yum downloader
+    yum install -y yum-utils         # Program to use yum downloader
 
-    yumdownloader --source zsh
+    yumdownloader --source zsh       # Get source rpm for zsh
 
     yum install ncurses-devel
 
     rpm -i zsh-<.....>
+
+    cd ~/rpmbuild/SOURCES
+
+    tar -xjf zsh..tar.bz2
+
+    cd zsh... ; ./configure
+
+    make ; make install
 
 ## Managing Services
 
