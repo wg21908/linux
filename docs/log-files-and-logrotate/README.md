@@ -81,16 +81,27 @@
 
     ls  /var/log/andrew*
 
-    
+## Maintain logs with journalctl
 
-    
+    journalctl           # no switches, complete log, can page through
+    journalctl -n        # last 10 entries
+    journalctl -n 15     # last 15 entries
+    journalctl -f        # follow end of journal log
+    journalctl -b        # since last boot
 
+    vi /etc/systemd/journald.conf
 
+    # reboot required for journald.conf updates
 
+    # by service
+    journalctl -u sshd.service        # sshd service
 
-    
+    # By dates
+    journalctl --since "2026-01-21 12:00:00"
+    journalctl --since "10 minutes ago"
+    journalctl --since "5 minutes ago"
 
-    
+    # see journal log files being written too 
+    journalctl --list-boots        # 0 is current log
 
-
-    
+    journalctl -b -1 # look at previous log  
