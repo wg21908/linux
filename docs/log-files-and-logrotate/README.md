@@ -19,7 +19,7 @@
 
     sudo lastb # read b "for bad" temp file, failed login attemps
 
-# Audting su and sudo access
+## Audting su and sudo access
 
     cd /var/log
     ls
@@ -33,3 +33,35 @@
 
     # See when su command was used for files starting with secure
     grep su: secure*
+
+## Scripting with AWK
+
+    # Search for sudo, print 5, 6, and 7 on file called secure
+    awk '/sudo/ { print $5, $6, $14 } ' secure
+
+
+    # While in script, need variables to expand
+    awk "/$1/ { print \$5, \$6, \$14 }" $2
+
+## rsyslog
+
+    cd /etc
+    ls rsyslog*  # has rsyslog.conf rsyslog.d; rsyslog.conf is the main configuration file
+    /etc/rsyslog.conf
+
+    vi /etc/rsyslog.conf
+
+    # Add line
+    local1.info /var/log/andrew
+
+    systemctl restart rsyslog
+    systemctl status rsyslog
+
+    logger -p local1.warn "Test message"    
+    tail /var/log/messages
+    tail /var/log/andrew
+    
+
+
+
+    
