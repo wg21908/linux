@@ -6,42 +6,50 @@ FYI: Apparmor is the same thing as above
 
 ## View SELinux status & Contexts
 
-    ls -Z /etc/shadow
+    ls -Z <file>
 
-    getenforce   # get mode
+    # tell me whehter enforcing or permissive
+    getenforce                   # get mode
 
-    sestatus     # overall SELinux status
+    sestatus                     # overall SELinux status
 
     cat /etc/selinux/config
 
+    # Set to permissive, allow to happen but log errors
     setenforce 0
 
-    geten # Shows getenforce and getent files
+    geten                         # Shows getenforce and getent files
 
     getenforce # shows Permissive
 
+    # Enforce and log it
     setenforce 1
 
+    /etc/selinux/config         # is file
+
+    # Look at users
     id -Z # shows unconfined
 
-    ps -Z # see type unconfined_t
+    # look at processes
+    ps -Z <pid>                 # see type unconfined_t
 
-    ps -Zp $(pgrep sshd)    # type is: sshd_t
+    ps -Zp $(pgrep sshd)        # type is: sshd_t
     
 ## View SELinux logs
 
-    tail /var/log/audit/audit.log
+    tail /var/log/audit/audit.log                    # SELinux logs to this file
 
-    ausearch -m avc     # shows access denieds
+    ausearch -m avc                                 # shows access denieds, this allows us to search
 
-    ls -Z /etc/shadow
+    ausearch -m avc -ts recent
+
+    ls -Z <file>
 
     chcon -t unlabeled_t /etc/shadow
 
     ls -Z /etc/shadow
-
-    ausearch -m avc -ts recent
-
+   
+    # Restore file to its original
     restorecon /etc/shadow
    
     ls -Z /etc/shadow
