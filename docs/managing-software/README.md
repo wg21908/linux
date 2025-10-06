@@ -1,6 +1,6 @@
-# 
+# Managing Software
 
-## Software management w/RPM
+## w/RPM
 
     dnf  install --downloadonly httpd
 
@@ -20,9 +20,9 @@
 
     rpm -qpi httpd-
     
-    rpm -qpl <package name ending w/.rpm>
+    rpm -qpl <package name ending w/.rpm>        # query, ?, list
 
-    rpm -i <package name ending in .rpm>
+    rpm -i <package name ending in .rpm>        # install
 
     rpm -e nmap    # removing a package
 
@@ -30,7 +30,7 @@
 
     rpm -qi setup or rpm -qi <package name>
 
-    rpm -V setup    # V is verify
+    rpm -V setup    # V is verify, what we think is installed is actually installed
 
 ## w/DNF
 
