@@ -71,3 +71,11 @@ FYI: Apparmor is the same thing as above
     !ls     # show policy last  updated, this time, will see date difference since it is a permanent/persistent change
     
 ## Working w/SELinux ports
+
+    semanage port -l        # list all selinux ports types being listed
+
+    semanage port -l | grep ssh        # allowed to use port 22, shows ssh_port_t in output
+
+    semanage port -a -t ssh_port_t -p tcp 2222
+
+    !ls # run last command that begain with ls, which was ls -l /etc/selinux/targeted/policy/
