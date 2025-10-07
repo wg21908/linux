@@ -69,6 +69,28 @@
 
 ## Adding Users and Groups
 
-    
-    
-    
+    # Config file for adding a new group
+    cat group.ldif
+         dn: cn=ldapusers,ou=group,dc=example,dc=com
+         objectClass: posixGroup
+         cn: ldapusers
+         gidNumber: 4000
+
+    # Creating the new group
+    ldapadd -x -W -D "cn=Manager,dc=example,dc=com" -f group.ldif
+
+    # Creating a user
+    cd /usr/share/migrationtools
+    vi migrate_common.ph
+    # looking for MAIL_DOMAIN
+    #    Should be example.com
+    #    DEFAULT_BASE = "dc=example,dc=com"
+
+    grep tux /etc/passwd > passwd
+
+    /usr/share/migrationtools/migrate_passwd.pl  passwd user.ldif        # perl script
+
+    vi user.ldif
+
+    ldapadd -x -W -D "cn=Manager,dc=example,dc=com" -f user.ldif
+  
