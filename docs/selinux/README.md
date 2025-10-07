@@ -8,7 +8,7 @@ FYI: Apparmor is the same thing as above
 
     ls -Z <file>
 
-    # tell me whehter enforcing or permissive
+    # tell me whether SELinux is enforcing or permissive
     getenforce                   # get mode
 
     sestatus                     # overall SELinux status
