@@ -74,10 +74,3 @@
     # Update 2 of 2
     sudo vi time.conf
         *;*;tux|bob;Wk0800-1800
-    
-
-
-
-    
-
-    
