@@ -9,13 +9,13 @@
     ls /etc/security/
 
     sudo vi /etc/login.defs
-      CREATE_HOME yes # no will not automatically create home directory
+      CREATE_HOME yes                                 # no will not automatically create home directory
 
-    sudo useradd bob # as no, won't have a /home/bob directory
+    sudo useradd bob                                  # as no, won't have a /home/bob directory
 
-    grep bob /etc/passwd  # will show bob's home directory path despite it not yet existing
+    grep bob /etc/passwd                              # will show bob's home directory path despite it not yet existing
 
-    sudo passwd bob       # to setup bob's password
+    sudo passwd bob                                   # to setup bob's password
 
     rpm -qa | grep oddjob
 
@@ -23,7 +23,7 @@
     systemctl start oddjobd
     systemctl status oddjobd
 
-    sudo authconfig --enablemkhomedir --update
+    sudo authconfig --enablemkhomedir --update        # write to pam config
 
     sudo -i
 
@@ -31,13 +31,13 @@
 
     grep mkhomedir *
 
-    su - bob # will cause home directory creation
+    su - bob                                          # will cause home directory creation
 
-    pwd # shows bob's home directory
+    pwd                                               # shows bob's home directory
 
 ## Configure Password Policies
 
-    cat /etc/pam.d/system-auth             # directory pam.d holds configuration files that can use PAM, a password quality-based file
+    cat /etc/pam.d/system-auth                        # directory pam.d holds configuration files that can use PAM, a password quality-based file
 
     # we will see password, .so are library files
 
@@ -73,4 +73,4 @@
     cd /etc/security
     # Update 2 of 2
     sudo vi time.conf
-        *;*;tux|bob;Wk0800-1800
+        sshd;*;tux|bob;Wk0800-1800
