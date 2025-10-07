@@ -21,7 +21,7 @@
     facter | grep domain            # Get domain
     facter | grep virtual        
    
-## Using amd Applying Puppet Manifests
+## Using and Applying Puppet Manifests
 
     # Manifest or .pp file
 
