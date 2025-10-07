@@ -31,7 +31,38 @@
 
 ## Listing Users and Groups
 
+    getent passwd        # see users
+
+    getent group         # see groups
+
+    grep ldap /etc/nsswitch.conf        
+
+    # key config file: /etc/nsswitch.conf
+
+    ssh tux@192.168.56.105
+
+## Searching LDAP Users
+
+    # Searching the directory
+
+    ldapsearch -x -H ldap://server1.example.com -b dc=example,dc=com
+
+    ldapsearch -x -LLL -H ldap://server1.example.com -b dc=example,dc=com
+
+    ldapsearch -x -LLL -H ldap://server1.example.com -b dc=example,dc=com "(objectclass=account)"
+
+    ldapsearch -x -LLL -H ldap://server1.example.com -b dc=example,dc=com "(&(objectclass=account)(uid=fred))"
+
+    ldapsearch -x -LLL -H ldap://server1.example.com -b dc=example,dc=com "(&(objectclass=account)(uid=fred))" uidNumber uid            # return just 2 fields for fred
+
+    ldapsearch -x -LLL -H ldap://server1.example.com -b dc=example,dc=com "(&(objectclass=account)(uid=fred))" > newuser.ldif
+    ldapadd -x -W -D cn=Manager,dc=example,dc=com -f newuser.ldif
+
+    getent passwd
+
     
-
-
+    
+    
+    
+    
 
