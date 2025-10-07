@@ -88,7 +88,7 @@
 
     grep tux /etc/passwd > passwd
 
-    /usr/share/migrationtools/migrate_passwd.pl  passwd user.ldif        # perl script
+    /usr/share/migrationtools/migrate_passwd.pl passwd user.ldif        # perl script
 
     vi user.ldif
 
