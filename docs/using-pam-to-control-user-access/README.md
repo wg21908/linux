@@ -37,6 +37,18 @@
 
 ## Configure Password Policies
 
+    cat /etc/pam.d/system-auth             # directory pam.d holds configuration files that can use PAM, a password quality-based file
 
+    # we will see password, .so are library files
+
+    less /etc/security/pwquality.conf
+
+    # check quality of pwd, 0-100, higher is better score
+    pwscore
+
+## Restricting or Limiting Access to Resources
+
+    
+    
 
     
