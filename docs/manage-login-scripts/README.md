@@ -20,10 +20,20 @@
       ~/.bashrc
       /etc/bashrc
 
-    Non-login shell (mising whole profile structure)
+    Non-login shell (su, missing whole profile structure)
        ~/.bashrc
        /etc/bashrc
-    
+
+    Profile:
+       - PATH=$PATH:~/bin
+
+    Bashrc
+       - PS1="[\u@\h \w] \$"
+
+    /etc/skel
+       - Template directory for new users
+       - Sample personal login scripts
+       
 ## Investigating the Executive Order
 
     su -l            # to root account, - and -l are the same, no usersname defaults to root acct    
@@ -42,6 +52,24 @@
 
 ## System Login Scripts
 
-    
+    cd /etc
+    ls profile*
+    # We have profile file and profile.d directory
+
+    ls /etc/bash*
+    # We have /etc/bashrc file and /etc/bash_completion.d directory
+
+    echo $PS1
+    # Displays [\u@\h \W]\$
+
+    vi /etc/bashrc        # to change prompt
 
 ## Home Directory Templates
+
+    /etc/skel/.bash_profile        
+    /etc/skel/.bashrc
+
+    # . and source do the same thing
+
+    /etc/skel/.bash_logout
+   
