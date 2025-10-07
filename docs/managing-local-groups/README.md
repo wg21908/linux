@@ -49,5 +49,46 @@
 
     su - <user>    # full login shell
     id -Gn          # to refresh group membership, due to previos command
+
+## Making Use of the SGID Permission
+
+    sudo yum install httpd w3m         # command line web-browser is w3m
+    sudo systemctl status httpd
+    ls /var/www/html/                  # where data comes from
+    ls -l /var/www/html                # directory owned and group owned by root
+    # as tux user
+    sudo vi /var/www/html/index.html   # then put some content in this file
+
+    w3m localhost        # shows the welcome page or the index.html page
+    # Right now access is allowed cause index.html file gives access to others, the ......r-x part of the permissions on the file
+
+    # Key part:
+    grep apache /etc/group # see apache group in main group file
+    sudo chgrp -R apache /var/www      # change group permission recursively
+
+    ls -ld /var/wwww
+
+    sudo chmod -R o= /var/www          # no permissions for others, since we earlier gave it to apachec
+
+    sudo ls -l /var/www/html
+
+    w3m localhost        # testing that access to index.html still exists, apache still has access to the page
+
+    chmod g+s .          # in /var/www/html, setting group id bit
+    ls -ld .             # in /var/www/html
+    umask 027            # others should have no access
+    vi test.html         # creating file to demonstrate what group permissions it will get
+    ls -l                # shows how new test.html file got apache group permissions
+
+## Group Passwords
+
+    id -Gn # check my secondary groups
+    id -gn # my primary group
+
+    # set password for adm group
+    sudo gpasswd adm
     
+    newgrp adm
+
+    # Less secure
     
