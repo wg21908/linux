@@ -64,31 +64,38 @@
 
     # Key part:
     grep apache /etc/group # see apache group in main group file
-    sudo chgrp -R apache /var/www      # change group permission recursively
+    sudo chgrp -R apache /var/www    # change group permission recursively
 
     ls -ld /var/wwww
 
-    sudo chmod -R o= /var/www          # no permissions for others, since we earlier gave it to apachec
+    sudo chmod -R o= /var/www        # no permissions for others, since we earlier gave it to apache
 
     sudo ls -l /var/www/html
 
-    w3m localhost        # testing that access to index.html still exists, apache still has access to the page
+    w3m localhost                    # testing that access to index.html still exists, apache still has access to the page
 
-    chmod g+s .          # in /var/www/html, setting group id bit
-    ls -ld .             # in /var/www/html
-    umask 027            # others should have no access
-    vi test.html         # creating file to demonstrate what group permissions it will get
-    ls -l                # shows how new test.html file got apache group permissions
+    chmod g+s /var/www/html          # in /var/www/html, setting group id bit
+    ls -ld .                         # in /var/www/html
+    umask 027                        # others should have no access
+    vi test.html                     # creating file to demonstrate what group permissions it will get
+    ls -l                            # shows how new test.html file got apache group permissions
 
 ## Group Passwords
 
-    id -Gn # check my secondary groups
-    id -gn # my primary group
+    id -Gn                                 # check my secondary groups
+    id -gn                                 # my primary group
 
     # set password for adm group
     sudo gpasswd adm
+
+    # add bob to sales group
+    sudo gpasswd -a bob sales
+
+    sudo gpasswd -M bob,jo,tux sales        # specifying complete membership
+
+    sudo usermod -G sales,wheel bob         # from user perspective, bob's secondary group membership    
     
     newgrp adm
 
-    # Less secure
+    # Lessens security if group has password, don't set passwords on a group
     
