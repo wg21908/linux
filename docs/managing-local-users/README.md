@@ -50,19 +50,19 @@
 
 ## Password Age Data
 
-    chage -l <username>        # Details about user password
+    chage -l <username>            # Details about user password
 
-    grep user1 /etc/password        # 2nd field is password, but has x, meaning it is instead shadow data
+    grep user1 /etc/password       # 2nd field is password, but has x, meaning it is instead shadow data
 
-    sudo pwunconv        # unconvert password, meaning move away from shadow to storing password in /etc/passwd file
+    sudo pwunconv                  # unconvert password, meaning move away from shadow to storing password in /etc/passwd file
 
-    sudo pwconv          # back to storing in shadow file, if you look at /etc/passwd you'll see 2nd field is a value of x again
+    sudo pwconv                    # back to storing in shadow file, if you look at /etc/passwd you'll see 2nd field is a value of x again
 
-    passwd --help        # seeing options
+    passwd --help                  # seeing options
 
-    chage --help         # seeing options
+    chage --help                   # seeing options
 
-    sudo chage -M 40 user1    # max number of days before password change required
+    sudo chage -M 40 user1         # max number of days before password change required
     
     sudo grep user1 /etc/shadow    # Shows the 40 days
 
@@ -76,13 +76,42 @@
 
 ## Account Defaults
 
-    
-    
-    
+    less /etc/login.defs
 
-    
+    # to see defaults
+    sudo useradd -D
 
-    
+    sudo useradd -Ds /bin/sh           # Change default shell
 
-    
+    sudo useradd -D                    # Review the default, changed shell
+
+    # Review defaults for useradd
+    sudo cat /etc/default/useradd
+
+    # Revert shell back to /bin/bash
+    sudo vi /etc/default/useradd
+        SHELL=/bin/bash
+
+## Modifying and Deleting User Accounts
+
+    sudo usermod -c "User One" user1
+    grep user1 /etc/passwd        # See the new comment for user1
+
+    chsh -l        # list available shells
+    chsh -s /bin/sh <username>                # to update the shell
+    grep <username> /etc/passwd            # to see new shell
+
+    sudo usermod -s /bin/bash <username>
+    grep <username> /etc/passwd            # see updated shell
+
+    sudo userdel -r <username>
+    ls /home        # to see removed user
+
+    sudo userdel <username>
+    ls -l        # username directory will still exist casue didn't user -r option
+
+    sudo find /home -uid 1002 -delete        # cleanup to get reosources related to removed user
+    ls -l        # home dir now gone
+
+    sudo userdel -r user3
     
