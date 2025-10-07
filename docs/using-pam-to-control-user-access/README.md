@@ -64,6 +64,16 @@
 
 ## Adding Login Time Restrictions
 
+    # Control Access Time
+    cd /etc/pam.d
+    # Update 1 of 2
+    sudo vi sshd
+        # New line
+        account required pam_time.so
+    cd /etc/security
+    # Update 2 of 2
+    sudo vi time.conf
+        *;*;tux|bob;Wk0800-1800
     
 
 
