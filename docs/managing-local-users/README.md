@@ -14,19 +14,19 @@
 
     /etc/passwd, users acct information tracked here
     
-    sudo useradd -m user1        # -m is to create a home directory
-    tail -n 1 /etc/passwd        # see new account just created
+    sudo useradd -m user1                        # -m is to create a home directory
+    tail -n 1 /etc/passwd                        # see new account just created
     # username, x is pwd, user id, group id, comments field, user home dir, default shell
 
     username and password are case sensitive
 
-    ls /home                    # shows user1
+    ls /home                                     # shows user1
     sudo ls -a /home/user1      
 
     tail -n 1 /etc/passwd
 
     sudo useradd -N user2 -g users -G adm
-    !t        # run last command that started with the letter t, which would be tail
+    !t                                           # run last command that started with the letter t, which would be tail
 
     sudo useradd user3 -G adm -s /bin/sh
 
