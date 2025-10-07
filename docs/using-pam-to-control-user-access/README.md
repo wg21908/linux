@@ -48,7 +48,26 @@
 
 ## Restricting or Limiting Access to Resources
 
+    ulimit -a        # all restrictions are listed
+
+    ulimit -u        # user processes, # of user processes allowed
+
+    ulimit -u 10     # set limit
+
+    ulimit -u        # shows 10 concurrent processes at any given time
     
+    vi test.sh
+        $0 in this script means that it calls itself, proof that running the script would start to error cause you reach the 10 process limit
+            it says: "./test.sh: fork: retry: No child processes"
+        
+    sudo vi /etc/security/limits.conf
+
+## Adding Login Time Restrictions
+
+    
+
+
+
     
 
     
