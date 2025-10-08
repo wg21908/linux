@@ -43,5 +43,37 @@
 
     swapon -s    # summary
 
-    
-    
+## Managing RAID
+
+    Redundant Array of Inexpensive Disks (RAID)
+
+    RAID Levels
+        - Linear
+        - RAID0
+        - RAID1
+        - RAID4, RAID5, RAID6
+
+    fdisk -l /dev/sdb
+        /dev/sdb13    Linux raid autodetect
+        /dev/sdb14    Linux raid autodetect
+
+    # Suport raid?  presence of file shows we support raid
+    cat /proc/mdstat
+
+    mdadm --create --verbose /dev/md0 --level=mirror --raid-devices=2 /dev/sdb13 /dev/sdb14       # this is the dev mapper
+        
+    ls -l /dev/md0        # shows block device
+
+    !cat        # ran last cat command, /proc/mdstat now has different output
+
+    mkfs.xfs /dev/md0
+
+    # Now we could mount this new fileysystem
+
+    mdadm --detail --scan
+
+    mdadm --detail --scan >> /etc/mdadm.conf
+
+    mdadm --stop /dev/md0          # stop it
+
+    mdadm --assemble --scan        # read in info from configuration file at /etc/mdadm.conf
