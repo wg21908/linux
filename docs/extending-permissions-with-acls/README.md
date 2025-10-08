@@ -70,11 +70,39 @@
 
 ## Diagnosing and Correcting File Access Issues
 
-    
+    SELinux, Modes, and ACLs
 
+    ls -l /etc/shadown                        # root has r
+    chage -l tux                              # pwd aging attr for user tux
+    chcon -t admin_home_t /etc/shadown        # change selinux context
+    chage -l tux
+    ls -Z /etc/shadown                        # can see we have wrong context
+    ausearch -m AVC -ts recent                # access vector controls
 
+    restorecon /etc/shadow                    # restore the context
+    !cha                                      # now it works
 
-    
-    
+    yum -y install httpd
 
-    
+    mkdir /web
+    chgrp apache /web
+    chmod 2750 /web
+    setfacl -m d:0:--- /web                   #
+    echo "My Web" > /web/index.html
+    ls -l /web/index.html
+
+    vi /etc/httpd/conf/httpd.conf
+        # Set DocumentRoot "/web"
+
+    apachectl configtest
+
+    systemctl restart httpd
+
+    w3m localhost        
+
+    !au        # run ausearch
+
+    semanage fcontext -a -t httpd_sys_content_t "/web(/.*)?"
+    restorecon /web
+    restorecon /web/*
+    ls -Z /web/
