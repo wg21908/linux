@@ -10,8 +10,10 @@
     systemctl start ntpd
     systemctl status ntpd
 
-    ntpq -p # for peers
+    ntpq -p                                         # for peers
 
+    firewall-cmd --add-service=kpasswd --permanent
+    firewall-cmd --add-service=kerberos --permanent
     firewall-cmd --add-service=ntp --permanent
 
     firewall-cmd --reload
@@ -145,5 +147,4 @@
     ssh tux@server1.example.com
 
     ssh tux@server2.example.com
-    
     
