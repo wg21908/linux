@@ -36,6 +36,8 @@
 
 ## Mounting File Systems
 
+    mount -o <device> <directory>
+
     mount /dev/sdb6 /mnt
 
     ls /mnt
