@@ -2,6 +2,8 @@
 
 ## Creating Swap Space
 
+    Partition type of 82 for swap space
+
     fdisk -l /dev/sdb    # -l is for list
 
     mkswap /dev/sdb5
@@ -10,10 +12,10 @@
 
     swapon /dev/sdb5
 
-    swapon -s
+    swapon -s            # summary of swap space in use
 
     # Remove swap space
-    swapoff /dev/sdb5
+    swapoff /dev/sdb5        # no longer using a device for swap
 
     # Turn back on
     swapon -s
@@ -21,7 +23,7 @@
     # See space
     free -m
 
-    swapoff /dev/sdb5
+    swapoff /dev/sdb5     # no longer use a device for swap
     !f                    # last command starting with f
 
 ## Configure Priority and Mounting at Boot
@@ -47,6 +49,10 @@
 
     Redundant Array of Inexpensive Disks (RAID)
 
+    Type FD or DA
+
+    Raid: 0 through 6
+
     RAID Levels
         - Linear
         - RAID0
@@ -60,11 +66,12 @@
     # Suport raid?  presence of file shows we support raid
     cat /proc/mdstat
 
+    # Creating a mirrored array
     mdadm --create --verbose /dev/md0 --level=mirror --raid-devices=2 /dev/sdb13 /dev/sdb14       # this is the dev mapper
         
-    ls -l /dev/md0        # shows block device
+    ls -l /dev/md0                                                                                # shows block device
 
-    !cat        # ran last cat command, /proc/mdstat now has different output
+    !cat                                                                                          # ran last cat command, /proc/mdstat now has different output
 
     mkfs.xfs /dev/md0
 
@@ -72,8 +79,8 @@
 
     mdadm --detail --scan
 
-    mdadm --detail --scan >> /etc/mdadm.conf
+    mdadm --detail --scan >> /etc/mdadm.conf                                                      # look at current devices and add to /etc/mdadm.conf file
 
-    mdadm --stop /dev/md0          # stop it
+    mdadm --stop /dev/md0                                                                         # stop it
 
-    mdadm --assemble --scan        # read in info from configuration file at /etc/mdadm.conf
+    mdadm --assemble --scan                                                                       # read in info from configuration file at /etc/mdadm.conf
