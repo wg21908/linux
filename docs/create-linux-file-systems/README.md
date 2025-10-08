@@ -34,4 +34,50 @@
       xfs_db> label    # now shows label value
       xfs_db> quit
 
-   
+## Mounting File Systems
+
+    mount /dev/sdb6 /mnt
+
+    ls /mnt
+
+    umount /mnt
+
+    mkdir -p /data/{mydata,data2}
+
+    ls /data        # shows all the sub directories
+
+    mount /dev/sdb6 /data/mydata
+
+    mount | grep mydata
+
+    # Showing mount options
+    mount -o remount,noexec /dev/sdb6 /data/mydata
+
+    mount | grep mydata            # shows the noexec option
+
+    umount /data/mydata/
+
+    mount | grep mydata
+
+    cat /proc/mount
+
+    # Persisting the mounts
+
+    blkid /dev/sdb6        # shows unique identifier, use the partition to get the unique identifier
+
+    vi /etc/fstab
+        Paste in UUID="................." /data/mydata ext4 noexec 0 2            # last arg is filesystem check, only for ext filesystems
+
+    # Avoid reboot
+    mount -a        # try to mount all unmounted filesystems
+
+    mount | grep mydata
+
+    
+    
+    
+
+
+
+
+
