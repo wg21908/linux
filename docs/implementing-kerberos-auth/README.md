@@ -96,3 +96,54 @@
 
 ## Adding Additional Hosts
 
+    # Add server2
+    # Change to root on server2
+
+    vi /etc/hosts
+
+    yum -y install krb5-workstation pam_krb5
+
+    # Get needed config on server1 over to server2
+    scp tux@server1.example.com:/etc/krb5.conf /etc
+
+    kadmin
+
+    listprincs
+
+    addprinc  -randkey host/server2.example.com
+
+    listprincs
+
+    ktadd host/server2.example.com        # add in keypairs to the local file
+
+    vi /etc/ssh/ssh_config
+        Uncomment, and have as: GSSAPIAuthentication yes
+        Uncomment, and have as: GSSAPIDelegateCredentials yes
+
+    authconfig-tui
+        # Use LDAP
+        # Use Shadow Passwords
+        # Use LDAP Authentication
+        # Use Kerberos
+        # Local authorization is sufficient
+
+    # Server: ldap://server1.example.com/
+    # Base DN: dc=example,dc=com
+
+    # Kerberos Settings
+    #  ...
+
+    systemctl reload sshd
+
+    klist
+        # not auth found at this point
+
+    kinit # put in password
+
+    klist # now shows keyring
+
+    ssh tux@server1.example.com
+
+    ssh tux@server2.example.com
+    
+    
