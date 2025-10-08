@@ -44,8 +44,37 @@
     getfacl test-acl/file2
     # user bob has r+w privs
 
-## Add Additional ACE
+## Add Additional ACL Entries
 
+    setfacl -m u:tux:rx /work/        # -m for modify
+    getfacl /work
+    # Shows that tux has r+x for /work/
+    # Prove it
+    su - tux
+    cd /work/
+    touch file1        # fails cause tux doesn't have w permission
+
+    setfacl -m d:0:--- /work
+
+    setfacl -m u:tux:rw /work/file1
+
+## Remove ACLs
+
+    ls -l        # see the +, the ACL is in place, so ., ACL support is in place but not being used
+
+    setfacl -x u:tux file1        # removed entry
+
+    getfacl file1
+
+    setfacl -b file1        # this removes the ACL, still supported by ACL is not set
+
+## Diagnosing and Correcting File Access Issues
+
+    
+
+
+
+    
     
 
     
