@@ -73,11 +73,23 @@
 
     mount | grep mydata
 
+## Mounting XFS File Systems
+
+    blkid /dev/sdb7
+
+    # Copy the UUID
+
+    vi /etc/fstab
+        UUID="......................." /data/data2 xfs defaults 0 0         # xfs, filesystem check doesn't apply or allowed
+
+    mount -a                  # mount all unmounted
+
+    mount | grep data2        # see it
+
+    xfs_info /dev/sdb7        # get some info on the partition
+
     
     
     
 
-
-
-
-
+    
