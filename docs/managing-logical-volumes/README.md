@@ -39,6 +39,15 @@
 
 ## Resizing LLVMs
 
+    df -h
+    pvscan
+    vgextend vg1 /dev/sdb12
+    vgs
+    lvextend -L +50m /dev/vg1/lv1
+
+    xfs_<tab tab>
+    xfs_growfs /lvm
+
 ## LVM Snapshots
 
 ## Migrating PVs to New Storage
