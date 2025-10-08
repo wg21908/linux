@@ -100,15 +100,8 @@
         
 ## Scripting Partition Creation
 
-    
+    Showed script that used parted to create partitions
 
+    # Backup the master boot record
 
-
-
-
-
-    
-    
-    
-    
-    
+    dd if=/dev/sda count=1 bs=512 of=/root/sdb.mbr
