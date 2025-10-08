@@ -88,8 +88,15 @@
 
     xfs_info /dev/sdb7        # get some info on the partition
 
-    
-    
-    
+## Investigating Mount Options
 
+    man mount
+
+    vi /etc/fstab
+        UUID="..............." /data/mydata ext4 noatime,noexec 0 2        # example of more options        
     
+    umount /data/mydata
+
+    mount -a    # to see new mount options that were added to /etc/fstab
+
+    mount | grep data
