@@ -19,7 +19,7 @@
     - MBR Partition Table 2TB Limitation
       - Max of 4 primary partitions
       
-    - GUID Partition Table 8ZB Limitation
+    - GUID Partition Table (GPT) 8ZB Limitation
       - Max of 128 partitions
     
     File Systems
