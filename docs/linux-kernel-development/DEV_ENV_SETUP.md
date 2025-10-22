@@ -18,7 +18,7 @@
 2. `make mrproper`
 3. `make x86_64_defconfig`
 4. Using a VSC terminal, build a quick .config with no changes to default settings.
-5. Append the above snippet to your new kernel’s .config with following command:
+5. Create a bash script called something like modify-config.sh.  Once run, it will append the lines below to your .config.  
 
         cat >> .config <<'EOF'
         #
