@@ -87,7 +87,7 @@
   
 6. `make olddefconfig`
 7. `make -j12`
-8. Verify with file command below, output should be: vmlinux: ELF 64-bit LSB executable ... with debug_info, not stripped
+8. Verify with file command below, output should be: `vmlinux: ELF 64-bit LSB executable ... with debug_info, not stripped`
 
    `file vmlinux`
 
