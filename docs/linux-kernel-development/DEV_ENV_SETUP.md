@@ -93,4 +93,4 @@
 
 ### VSC Plugins
 
-- ![VSC Plugins](./vsc-plugins.png)
+- ![VSC Plugins](./IMG_1432.jpeg)
