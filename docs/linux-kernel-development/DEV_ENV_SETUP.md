@@ -3,7 +3,7 @@
 ## Development Environment
 
 ### Assumptions:  
-- gdb and qemu are installed on Linux from Scratch (LFS) host.
+- gdb, qemu, and busybox are installed on Linux from Scratch (LFS) host.
 
 ### FYIs:
 - GDB is the C++ debugger  
