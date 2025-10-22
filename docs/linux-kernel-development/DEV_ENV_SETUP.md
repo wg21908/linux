@@ -15,8 +15,8 @@
 
 0. Open Visual Studio Code (VSC)
 1. Open official linux GitHub project in VSC
-2. make mrproper
-3. make x86_64_defconfig
+2. `make mrproper`
+3. `make x86_64_defconfig`
 4. Using a VSC terminal, build a quick .config with no changes to default settings.
 5. Append the above snippet to your new kernel’s .config with following command:
 
@@ -85,11 +85,11 @@
         CONFIG_DEBUG_INFO_BTF=n             # Disable unless you use eBPF tooling
         EOF
   
-6. make olddefconfig
-7. make -j12
+6. `make olddefconfig`
+7. `make -j12`
 8. Verify with file command below, output should be: vmlinux: ELF 64-bit LSB executable ... with debug_info, not stripped
 
-        file vmlinux
+   `file vmlinux`
 
 ### VSC Plugins
 
