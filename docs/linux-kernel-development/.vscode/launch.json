@@ -9,8 +9,17 @@
       "miDebuggerServerAddress": "localhost:1234",
       "miDebuggerPath": "/usr/bin/gdb",
       "cwd": "${workspaceFolder}",
-      "externalConsole": true,
-      "MIMode": "gdb"
+      "externalConsole": false,   // whether to use external terminal, outside of VSC
+      "MIMode": "gdb" //,
+      //"setupCommands": [
+      //  { "description": "Enable pretty-printing for gdb", "text": "-enable-pretty-printing", "ignoreFailures": true },
+      //  { "description": "Set disassembly flavor to Intel", "text": "-gdb-set disassembly-flavor intel", "ignoreFailures": true }
+      //]
     }
   ]
 }
+
+
+
+
+
