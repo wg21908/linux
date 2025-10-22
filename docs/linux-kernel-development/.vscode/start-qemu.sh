@@ -1,9 +1,10 @@
 #!/bin/bash
 
-# qemu-system-x86_64  -kernel /home/secra/git/linux/arch/x86/boot/bzImage -append "console=ttyS0" -serial mon:stdio -s -S
+sudo chown secra:secra /home/secra/git/linux/arch/x86/boot/bzImage
 
 qemu-system-x86_64 \
   -kernel /home/secra/git/linux/arch/x86/boot/bzImage \
   -initrd /home/secra/initramfs.cpio.gz \
   -append "console=ttyS0 rdinit=/init" \
-  -serial mon:stdio -s -S
+  -serial mon:stdio -s -S \
+  -nographic
