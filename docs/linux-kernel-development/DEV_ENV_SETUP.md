@@ -4,6 +4,9 @@
 
 ### Assumptions:  
 - gdb, qemu, and busybox are installed on Linux from Scratch (LFS) host.
+- gdb install script is part of BLFS chapter 13
+- qemu install script is part of BLFS chapter 8
+- busybox install script is part of BLFS, w/in the config/scripts directory
 
 ### FYIs:
 - GDB is the C++ debugger  
