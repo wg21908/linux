@@ -1,9 +1,13 @@
 #!/bin/bash
 
+#
+# Script should be run as secra, not w/a sudo
+#
+
 sudo chown -R secra:secra /home/secra/rootfs
 
 mkdir -p ~/rootfs/{bin,sbin,etc,proc,sys,usr/bin,usr/sbin}
-cp ~/rootfs/bin/busybox ~/rootfs/bin/
+cp -u ~/rootfs/bin/busybox ~/rootfs/bin/
 
 if [ ! -L "/home/secra/rootfs/bin/sh" ] && [ ! -e "/home/secra/rootfs/bin/sh" ]; then
   ln -s "/home/secra/rootfs/bin/busybox" "/home/secra/rootfs/bin/sh"
