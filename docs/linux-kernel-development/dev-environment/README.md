@@ -94,6 +94,10 @@
 
    `file vmlinux`
 
+9. `cd .vscode`, `./create-minimum-busybox-root.sh`, and `./create-initramfs-archive.sh`
+10. `cd .vscode`, `./start-qemu.sh`
+11. In VSC, run the 'Attach to QEMU kernel (GDB)' launch configuration
+
 ### VSC Plugins
 
 - ![VSC Plugins](./IMG_1432.jpeg)
